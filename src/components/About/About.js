@@ -1,11 +1,10 @@
 import { useContext, useState } from 'react';
-import { Box, Button, Center, Heading, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Card, Center, Heading, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 import translations from '../../translations.json';
 import main from './iso_bc.png'
-import Plx from 'react-plx';
 import Summary from './Summary';
-import { parallaxDataEnter, parallaxDataExit } from '../../animations';
 import LanguageContext from '../../LanguageContext';
+import ScrollScalingComponent from '../Custom/AnimatedWrapper';
 
 const About = () => {
 
@@ -20,58 +19,50 @@ const About = () => {
     return (
         <Stack mt='10%' bg={bgColor} color={textColor} display='flex' flexDirection='column' justifyContent='center' alignItems='center' overflow='hidden' gap={8}>
 
-            <Stack p={8} gap={8}>
+            <Stack p={8} gap={8} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
                 <Box textAlign="center">
-                    <Heading as="h1" fontSize={['4xl', '5xl']}>
-                        {title}
-                    </Heading>
-
+                    <ScrollScalingComponent>
+                        <Heading as="h1" fontSize={['4xl', '5xl']}>
+                            {title}
+                        </Heading>
+                    </ScrollScalingComponent>
                 </Box>
-                <Plx
-                    parallaxData={parallaxDataEnter}
-                    style={{ display: 'flex', justifyContent: 'center' }}
-                >
+                <ScrollScalingComponent>
+
                     <Image maxH={400} src={main} alt={heroImageAlt} borderRadius="lg" />
 
-                </Plx>
+                </ScrollScalingComponent>
 
 
 
+                <ScrollScalingComponent>
 
-
-                <Stack mb={8} gap={8}>
-                    <Plx
-                        parallaxData={parallaxDataExit}
-                    >
+                    <Stack mb={8} gap={8}>
                         <Text fontSize='lg' >{paragraph1}</Text>
 
 
-                    </Plx>
-                    <Plx
-                        parallaxData={parallaxDataExit}
-                    >
                         <Text fontSize={['lg', 'xl']}>{paragraph2}</Text>
-
-                    </Plx>
-
-                    <Plx
-                        parallaxData={parallaxDataExit}
-                    >
                         <Text fontSize={['lg', 'xl']}>{paragraph3}</Text>
+                    </Stack>
+                </ScrollScalingComponent>
+                <ScrollScalingComponent>
 
-                    </Plx>
+                    <Box textAlign="center">
+                        <Button colorScheme="blue" size="lg">
+                            look
+                        </Button>
+                    </Box>
+                </ScrollScalingComponent>
+            </Stack>
+
+            <ScrollScalingComponent>
+                <Stack>
+                    <Summary />
                 </Stack>
-                <Box textAlign="center">
-                    <Button colorScheme="blue" size="lg">
-                        look
-                    </Button>
-                </Box>
-            </Stack>
-
-            <Stack>
-                <Summary />
-            </Stack>
-        </Stack>
+            </ScrollScalingComponent>
+            <Box w="70%" maxH='400px' display='flex' justifyContent='center'>
+            </Box>
+        </Stack >
     );
 };
 

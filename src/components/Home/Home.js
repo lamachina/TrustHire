@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import Landing from './Landing'
-import { Stack } from '@chakra-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
 
 
 const url = (name, wrap = false) =>
@@ -10,9 +10,9 @@ const url = (name, wrap = false) =>
 function Home() {
     const parallax = useRef(null)
     return (
-        <div>
+        <Stack w='100%' h='100vh' overflow='hidden'>
             <Landing />
-        </div>
+        </Stack>
     )
 }
 
