@@ -21,9 +21,10 @@ function Navbar() {
             justify="space-between"
             alignItems='center'
             wrap="wrap"
+            bg='navbar'
             padding="0.7rem"
             w='100%'
-            position="sticky">
+            position="fixed">
             <Box display='flex' flexDirection='row' alignItems='center' gap={4}>
                 <Link as={ReactLink} to="/" >
                     <Stack display='flex' flexDirection='row' alignItems='center' gap={2}>

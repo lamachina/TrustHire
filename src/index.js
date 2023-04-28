@@ -48,7 +48,7 @@ root.render(
         <WagmiConfig client={wagmiClient}>
           <RainbowKitProvider chains={chains}
             theme={darkTheme({
-              accentColor: '#7AA95C',
+              accentColor: 'navbar',
               accentColorForeground: 'white',
               borderRadius: 'small',
               fontStack: 'rounded',

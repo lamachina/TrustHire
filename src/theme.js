@@ -33,6 +33,10 @@ const theme = extendTheme({
                 default: "#fffff",
                 _dark: "#fffff",
             },
+            navbar: {
+                default: "#c0e0f7",
+                _dark: "#27475e"
+            }
         },
     }
 

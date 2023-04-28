@@ -18,6 +18,7 @@
     "react-plx": "^2.1.2",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "react-spring": "^9.7.1",
     "wagmi": "^0.12.12",
     "web-vitals": "^2.1.4",
     "web3": "^1.9.0"
