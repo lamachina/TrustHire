@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import Landing from './Landing'
+import { Stack } from '@chakra-ui/react'
 
 
 const url = (name, wrap = false) =>

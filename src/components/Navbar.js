@@ -1,8 +1,9 @@
 import { ChatIcon, CloseIcon, HamburgerIcon, InfoOutlineIcon, MoonIcon, SunIcon, TimeIcon, ViewIcon } from '@chakra-ui/icons';
-import { Box, Divider, Drawer, DrawerBody, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Link, Stack, Text, useColorMode, useMediaQuery } from '@chakra-ui/react';
+import { Box, Divider, Drawer, DrawerBody, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Link, Select, SelectField, Stack, Text, useColorMode, useMediaQuery } from '@chakra-ui/react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
+import LanguageContext from '../LanguageContext';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,12 @@ function Navbar() {
 
     const { colorMode, toggleColorMode } = useColorMode();
     const [isMobile] = useMediaQuery("(max-width: 768px)");
+
+    const { language, setLanguage } = useContext(LanguageContext);
+
+    const handleLanguageChange = (event) => {
+        setLanguage(event.target.value);
+    };
 
     return (
         <Flex
@@ -42,7 +49,15 @@ function Navbar() {
             </Box>
             <Box onClick={toggleColorMode}>
                 {colorMode === 'light' ? <SunIcon color='yellow.700' /> : <MoonIcon color='yellow.100' />}
+
             </Box>
+            <Box>
+                <Select value={language} onChange={handleLanguageChange}>
+                    <option value="en">ENG</option>
+                    <option value="fr">FR</option>
+                </Select>
+            </Box>
+
             {/* Conditionally render hamburger icon for mobile */}
             {isMobile && (
                 <Box display='block' onClick={toggleSidebar}>
@@ -126,10 +141,15 @@ function Navbar() {
                             </Box>
                         </DrawerBody>
 
-                        <DrawerFooter>
-                            <Stack alignItems='center' direction='row' gap={2} justifyContent='center'>
-                                <CloseIcon color='red.900' boxSize={8} onClick={toggleSidebar} />
-                            </Stack>
+                        <DrawerFooter display='flex' justifyContent='space-between'>
+                            <Box>
+                                <Select value={language} onChange={handleLanguageChange}>
+                                    <option value="en">ENG</option>
+                                    <option value="fr">FR</option>
+                                </Select>
+                            </Box>
+                            <CloseIcon color='red.900' boxSize={8} onClick={toggleSidebar} />
+
                         </DrawerFooter>
                     </DrawerContent>
 

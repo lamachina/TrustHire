@@ -1,84 +1,12 @@
 import Plx from 'react-plx'
 import React from 'react'
-import { Heading, Stack, useColorMode } from '@chakra-ui/react'
+import { Button, Heading, Stack, useColorMode } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
+import { parallaxData, parallaxData2, parallaxDataCloud, parallaxDataCloud3 } from '../../animations';
 
 
 
-const parallaxData = [
-    {
-        start: "self",
-        end: "100vh",
-        properties: [
-            {
-                startValue: 0,
-                endValue: -100,
-                property: "translateY",
-            },
-
-            {
-                startValue: 1,
-                endValue: 0,
-                property: "opacity",
-            },
-        ],
-    },
-];
-const parallaxData2 = [
-    {
-        start: "self",
-        end: "90vh",
-        properties: [
-            {
-                startValue: 100,
-                endValue: 0,
-                property: "translateX",
-            },
-            {
-                startValue: 0,
-                endValue: 1,
-                property: "opacity",
-            },
-        ],
-    },
-];
-const parallaxDataCloud = [
-    {
-        start: "0",
-        end: "70vh",
-        properties: [
-            {
-                startValue: -100,
-                endValue: 0,
-                property: "translateX",
-            },
-            {
-                startValue: 0,
-                endValue: 1,
-                property: "opacity",
-            },
-        ],
-    },
-];
-
-const parallaxDataCloud3 = [
-    {
-        start: "self",
-        end: "100vh",
-        properties: [
-            {
-                startValue: 100,
-                endValue: 0,
-                property: "translateY",
-            },
-            {
-                startValue: 0,
-                endValue: 1,
-                property: "opacity",
-            },
-        ],
-    },
-];
 
 function Landing() {
 
@@ -159,7 +87,8 @@ function Landing() {
                 }}
             >
                 <Heading size="4xl">Trust</Heading>
-            </Plx><Plx
+            </Plx>
+            <Plx
                 parallaxData={parallaxData2}
                 style={{
                     display: 'flex',
@@ -171,6 +100,22 @@ function Landing() {
                 }}
             >
                 <Heading color='bl' size="4xl">Hire</Heading>
+            </Plx>
+            <Plx
+                parallaxData={parallaxDataCloud3}
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'fixed',
+                    top: '30%',
+                    height: '100vh',
+                    zIndex: 1,
+                }}
+            >
+                <Link to='/about'>
+                    <Button colorScheme='linkedin'>Get Started</Button>
+                </Link>
             </Plx>
         </Stack >
     )
