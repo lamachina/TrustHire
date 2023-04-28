@@ -45,11 +45,9 @@ function Navbar() {
                         />
                     </Stack>
                 </Link>
-
             </Box>
             <Box onClick={toggleColorMode}>
                 {colorMode === 'light' ? <SunIcon color='yellow.700' /> : <MoonIcon color='yellow.100' />}
-
             </Box>
             <Box>
                 <Select value={language} onChange={handleLanguageChange}>
@@ -93,7 +91,6 @@ function Navbar() {
                     </Link>
                 </Box>
             )}
-
             <Drawer placement="bottom" onClose={toggleSidebar} isOpen={isOpen} >
                 <DrawerOverlay display='flex' justifyContent='center' alignItems='center' >
                     <DrawerContent>
