@@ -10,7 +10,7 @@ const url = (name, wrap = false) =>
 function Home() {
     const parallax = useRef(null)
     return (
-        <Stack w='100%' h='100vh' overflow='hidden'>
+        <Stack h='100vh' overflow='hidden'>
             <Landing />
         </Stack>
     )

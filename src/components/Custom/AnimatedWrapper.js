@@ -7,7 +7,7 @@ const ScrollScalingComponent = ({ children }) => {
 
 
     return (
-        <motion.div initial={{ scale: 0 }}
+        <motion.div initial={{ scale: 0.7 }}
             whileInView={{ scale: 1 }}
             viewport={{ root: scrollRef }} >
             {children}

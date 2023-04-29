@@ -5,6 +5,8 @@ import main from './iso_bc.png'
 import Summary from './Summary';
 import LanguageContext from '../../LanguageContext';
 import ScrollScalingComponent from '../Custom/AnimatedWrapper';
+import ScrollFadingComponent from '../Custom/GenerativeArt';
+import Idea from './Idea';
 
 const About = () => {
 
@@ -17,52 +19,46 @@ const About = () => {
 
 
     return (
-        <Stack mt='10%' bg={bgColor} color={textColor} display='flex' flexDirection='column' justifyContent='center' alignItems='center' overflow='hidden' gap={8}>
+        <Stack maxW='90%' mt='10%' bg={bgColor} color={textColor} display='flex' flexDirection='column' justifyContent='center' alignItems='center' overflow='hidden' gap={8}>
 
-            <Stack p={8} gap={8} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-                <Box textAlign="center">
+            <Stack maxW='95%' pt={8} gap={8} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
+                <Box textAlign="center" p={4}>
                     <ScrollScalingComponent>
                         <Heading as="h1" fontSize={['4xl', '5xl']}>
                             {title}
                         </Heading>
                     </ScrollScalingComponent>
                 </Box>
-                <ScrollScalingComponent>
+                <ScrollScalingComponent >
 
                     <Image maxH={400} src={main} alt={heroImageAlt} borderRadius="lg" />
 
                 </ScrollScalingComponent>
 
+                <Stack mb={8} gap={8}>
+                    <Text fontSize='lg' >{paragraph1}</Text>
+                    <Text fontSize={'lg'}>{paragraph2}</Text>
+                    <Text fontSize={['lg', 'xl']}>{paragraph3}</Text>
 
+                </Stack>
+                <Box textAlign="center">
+                    <Button colorScheme="blue" size="lg">
+                        look
+                    </Button>
+                </Box>
 
-                <ScrollScalingComponent>
-
-                    <Stack mb={8} gap={8}>
-                        <Text fontSize='lg' >{paragraph1}</Text>
-
-
-                        <Text fontSize={['lg', 'xl']}>{paragraph2}</Text>
-                        <Text fontSize={['lg', 'xl']}>{paragraph3}</Text>
+                <ScrollFadingComponent>
+                    <Stack mb={32}>
+                        <Summary />
                     </Stack>
-                </ScrollScalingComponent>
-                <ScrollScalingComponent>
+                </ScrollFadingComponent>
 
-                    <Box textAlign="center">
-                        <Button colorScheme="blue" size="lg">
-                            look
-                        </Button>
-                    </Box>
-                </ScrollScalingComponent>
+                <Idea />
+
+
             </Stack>
 
-            <ScrollScalingComponent>
-                <Stack>
-                    <Summary />
-                </Stack>
-            </ScrollScalingComponent>
-            <Box w="70%" maxH='400px' display='flex' justifyContent='center'>
-            </Box>
-        </Stack >
+        </Stack>
     );
 };
 
