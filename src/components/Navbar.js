@@ -1,5 +1,5 @@
-import { ChatIcon, CloseIcon, HamburgerIcon, InfoOutlineIcon, MoonIcon, SunIcon, TimeIcon, ViewIcon } from '@chakra-ui/icons';
-import { Box, Divider, Drawer, DrawerBody, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Link, Select, SelectField, Stack, Text, useColorMode, useMediaQuery } from '@chakra-ui/react';
+import { ChatIcon, CloseIcon, HamburgerIcon, InfoOutlineIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { Box, Divider, Drawer, DrawerBody, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Link, Select, Stack, Text, useColorMode, useMediaQuery } from '@chakra-ui/react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useContext, useState } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
@@ -56,13 +56,11 @@ function Navbar() {
                 </Select>
             </Box>}
 
-            {/* Conditionally render hamburger icon for mobile */}
             {isMobile && (
                 <Box display='block' onClick={toggleSidebar}>
                     <HamburgerIcon boxSize='10' />
                 </Box>
             )}
-            {/* Conditionally render icons for desktop */}
             {!isMobile && (
                 <Box w='34%' display='flex' justifyContent='space-around'>
                     <Link

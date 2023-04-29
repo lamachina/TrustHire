@@ -1,4 +1,4 @@
-import { Stack } from '@chakra-ui/react';
+import { Center, Stack } from '@chakra-ui/react';
 import './App.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './components/Home/Home';
@@ -20,6 +20,7 @@ function App() {
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
       <div className="App">
+
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -28,6 +29,7 @@ function App() {
 
         </Routes>
         {/* <Bottombar /> */}
+
 
       </div>
     </LanguageContext.Provider>

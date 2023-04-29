@@ -1,15 +1,12 @@
-import { useContext, useState } from 'react';
-import { Box, Button, Card, CardBody, CardHeader, Center, Heading, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { Box, Button, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import main from './iso_hire.png'
-import iso from './iso_lg.png'
 import translations from "../../translations.json"
 import LanguageContext from '../../LanguageContext';
-import ScrollScalingComponent from '../Custom/AnimatedWrapper';
 
 function Summary() {
-
     const { language } = useContext(LanguageContext);
-    const { About, paragraph1A, paragraph2A, paragraph3A, ctaA } = translations[language];
+    const { About, paragraph1A } = translations[language];
 
     return (
         <div>
@@ -21,11 +18,13 @@ function Summary() {
 
                 </Box>
                 <Image maxH={400} maxW={400} src={main} borderRadius="lg" />
-                <Stack mb={8} gap={8} maxWidth='80%'>
-                    <ScrollScalingComponent>
-                        <Text fontSize='lg' >{paragraph1A}</Text>
-                        <Text fontSize={'lg'}>{paragraph2A}</Text>
-                    </ScrollScalingComponent>
+
+                <Stack mb={8} gap={1} maxWidth='80%' textAlign='start' w='60%'>
+                    <Text fontSize='lg' >just a subtitle</Text>
+                    <Heading>Now a big title</Heading>
+                    <Text>{paragraph1A}</Text>
+                    <Button >CLICK</Button>
+                    <Button variant='ghost' color='orange.200'>OR HERE</Button>
                 </Stack>
             </Stack>
         </div>

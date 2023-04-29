@@ -11,8 +11,7 @@ body {
 body {
   font-family: Arial Black, sans-serif;
   text-align: center;
-  background: #000;
-  height: 200vh;
+  height: 100%;
 }
 
 #root {
@@ -26,12 +25,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
   overflow: auto;
 }
 
 .navbar {
-  position: sticky;
   top: 0;
   z-index: 1;
 }

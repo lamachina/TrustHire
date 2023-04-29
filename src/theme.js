@@ -7,6 +7,15 @@ const theme = extendTheme({
         mono: "Roboto, sans-serif",
         futur: 'Unbounded, cursive'
     },
+    /* 
+        styles: {
+            global: () => ({
+                ".chakra": {
+                    backgroundColor: "yellow.500",
+                },
+            }),
+        }, */
+
     semanticTokens: {
         colors: {
             bl: {
@@ -34,12 +43,11 @@ const theme = extendTheme({
                 _dark: "#fffff",
             },
             navbar: {
-                default: "#c0e0f7",
-                _dark: "#27475e"
+                default: "",
+                _dark: "#373737"
             }
         },
     }
-
 });
 
 export default theme;

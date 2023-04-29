@@ -2,7 +2,7 @@
     "en": {
         "title": "The Future of Ethical Recruitment",
         "heroImageAlt": "Image of a padlock or key with a blockchain-style texture in the background",
-        "paragraph1": "TrustHire is a revolutionary blockchain-based service that tackles the ethical challenges of recruitment head-on. Our platform allows companies to mint NFTs that correspond to specific job positions and provide employees with proof of their employment for future job applications.",
+        "paragraph1": "TrustHire is a decentralized blockchain-based service that tackles the ethical challenges of recruitment head-on. Our platform allows companies to mint NFTs that correspond to specific job positions and provide employees with proof of their employment for future job applications.",
         "paragraph2": "Traditional CVs and job references can be easily falsified or misrepresented, making it difficult for recruiters to make informed decisions. With TrustHire, companies can verify an employee's job history and skills with ease, thanks to the immutable nature of blockchain technology.",
         "paragraph3": "TrustHire is built on the Ethereum blockchain and uses the ERC721 token standard to mint and manage job NFTs. Our platform is easy to use and provides a transparent and secure way to manage job histories and skills.",
         "cta": "Get started with TrustHire today and revolutionize your recruitment process. Sign up now and join the future of ethical recruitment.",
@@ -10,12 +10,28 @@
         "paragraph1A": "TrustHire is a blockchain-based recruitment service that aims to solve trust and transparency issues in the hiring process. With our platform, businesses can easily verify a candidate's work history and skills, while also providing employees with proof of their employment for future job applications.",
         "paragraph2A": "Our platform utilizes Ethereum blockchain technology and the ERC721 token standard to create and manage employment NFTs. This ensures that all information is stored immutably and transparently, providing greater security and trust in the hiring process.",
         "paragraph3A": "At TrustHire, we believe in a fair and equitable hiring process for all. By using the blockchain to ensure information integrity, we are able to create a more transparent, reliable, and efficient hiring ecosystem for all participants in the job market.",
-        "ctaA": ""
+        "ctaA": "",
+        "subtitleHome": "The best platform for safe and fair recruitment.",
+        "offervalue": "We offer values.",
+        "v1": [
+            {
+                "t": "Tolerance in business",
+                "st": "Because we care about HOW, instead of WHO."
+            },
+            {
+                "t": "Transpacency is the key",
+                "st": "Because honest people deserve it."
+            },
+            {
+                "t": "Trust is must",
+                "st": "Because together we grow up faster."
+            }
+        ]
     },
     "fr": {
         "title": "L'avenir du recrutement éthique",
         "heroImageAlt": "Image d'un cadenas ou d'une clé avec une texture de style blockchain en arrière-plan",
-        "paragraph1": "TrustHire est un service révolutionnaire basé sur la blockchain qui s'attaque de front aux défis éthiques du recrutement. Notre plateforme permet aux entreprises de créer des NFT qui correspondent à des postes spécifiques et de fournir aux employés une preuve de leur emploi pour les candidatures futures.",
+        "paragraph1": "TrustHire est un service décentralisé basé sur la blockchain qui s'attaque de front aux défis éthiques du recrutement. Notre plateforme permet aux entreprises de créer des NFT qui correspondent à des postes spécifiques et de fournir aux employés une preuve de leur emploi pour les candidatures futures.",
         "paragraph2": "Les CV traditionnels et les références d'emploi peuvent être facilement falsifiés ou mal représentés, ce qui rend difficile pour les recruteurs de prendre des décisions éclairées. Avec TrustHire, les entreprises peuvent vérifier facilement l'historique professionnel et les compétences d'un employé, grâce à la nature immuable de la technologie blockchain.",
         "paragraph3": "TrustHire est construit sur la blockchain Ethereum et utilise la norme de jeton ERC721 pour créer et gérer des NFT d'emploi. Notre plateforme est facile à utiliser et offre un moyen transparent et sécurisé de gérer l'historique professionnel et les compétences.",
         "cta": "Commencez dès aujourd'hui avec TrustHire et révolutionnez votre processus de recrutement. Inscrivez-vous maintenant et rejoignez l'avenir du recrutement éthique.",
@@ -23,6 +39,22 @@
         "paragraph1A": "TrustHire est un service de recrutement basé sur la blockchain qui vise à résoudre les problèmes de confiance et de transparence dans le processus de recrutement. Grâce à notre plateforme, les entreprises peuvent facilement vérifier l'historique professionnel et les compétences des candidats, tout en offrant aux employés une preuve de leur emploi pour les futures candidatures.",
         "paragraph2A": "Notre plateforme utilise la technologie de la blockchain Ethereum et la norme de jeton ERC721 pour créer et gérer des NFT d'emploi. Cela garantit que toutes les informations sont stockées de manière immuable et transparente, offrant ainsi une meilleure sécurité et une plus grande confiance dans le processus de recrutement.",
         "paragraph3A": "Chez TrustHire, nous croyons en un processus de recrutement juste et équitable pour tous. En utilisant la blockchain pour garantir l'intégrité des informations, nous sommes en mesure de créer un écosystème de recrutement plus transparent, plus fiable et plus efficace pour tous les acteurs du marché de l'emploi.",
-        "ctaA": ""
+        "ctaA": "",
+        "subtitleHome": "La meilleure plateforme de recrutement sécurisé et équitable.",
+        "offervalue": "Nous offrons des valeurs.",
+        "v1": [
+            {
+                "t": "Tolerance dans les affaires",
+                "st": "Car l'important c'est COMMENT, au lieu de QUI."
+            },
+            {
+                "t": "La transparence est la clé",
+                "st": "Puisque les gens honnêtes le méritent."
+            },
+            {
+                "t": "La confiance est nécessaire",
+                "st": "Car ensemble nous allons plus vite."
+            }
+        ]
     }
 }
