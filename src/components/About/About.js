@@ -13,9 +13,6 @@ const About = () => {
     const { language } = useContext(LanguageContext);
     const { title, heroImageAlt, paragraph1, paragraph2, paragraph3 } = translations[language];
 
-
-
-
     return (
         <Stack maxW='90%' mt='10%' display='flex' flexDirection='column' justifyContent='center' alignItems='center' overflow='hidden' gap={8}>
 
@@ -50,6 +47,7 @@ const About = () => {
                 </ScrollFadingComponent>
 
                 <Idea />
+
 
 
             </Stack>

@@ -1,5 +1,5 @@
-import { ChatIcon, CloseIcon, HamburgerIcon, InfoOutlineIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { Box, Divider, Drawer, DrawerBody, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, Link, Select, Stack, Text, useColorMode, useMediaQuery } from '@chakra-ui/react';
+import { ChatIcon, CloseIcon, HamburgerIcon, InfoOutlineIcon, MoonIcon, SunIcon, TriangleUpIcon } from '@chakra-ui/icons';
+import { Box, Divider, Drawer, DrawerBody, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, GenericAvatarIcon, Link, Select, Stack, Text, useColorMode, useMediaQuery } from '@chakra-ui/react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useContext, useState } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
@@ -82,6 +82,14 @@ function Navbar() {
                     <Link
                         as={ReactLink}
                         mr={6}
+                        to="/dashboard"
+                        _hover={{ textDecoration: 'none' }}
+                    >
+                        <TriangleUpIcon fontSize='xl' />
+                    </Link>
+                    <Link
+                        as={ReactLink}
+                        mr={6}
                         to="/contact"
                         _hover={{ textDecoration: 'none' }}
                     >
@@ -123,6 +131,17 @@ function Navbar() {
                                 <Divider />
                                 <Link
                                     as={ReactLink}
+                                    to="/dashboard"
+                                    fontSize="2xl"
+                                    fontWeight="medium"
+                                    _hover={{ textDecoration: 'none' }}
+                                    onClick={toggleSidebar}
+                                >
+                                    <Text fontFamily='futur'>DASHBOARD</Text>
+                                </Link>
+                                <Divider />
+                                <Link
+                                    as={ReactLink}
                                     to="/contact"
                                     fontSize="2xl"
                                     fontWeight="medium"
@@ -132,6 +151,7 @@ function Navbar() {
                                     <Text fontFamily='futur'>CONTACT</Text>
                                 </Link>
                                 <Divider />
+
 
                             </Box>
                         </DrawerBody>
