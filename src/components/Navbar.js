@@ -49,12 +49,12 @@ function Navbar() {
             <Box onClick={toggleColorMode}>
                 {colorMode === 'light' ? <SunIcon color='yellow.700' /> : <MoonIcon color='yellow.100' />}
             </Box>
-            <Box>
+            {!isMobile && <Box>
                 <Select value={language} onChange={handleLanguageChange}>
                     <option value="en">ENG</option>
                     <option value="fr">FR</option>
                 </Select>
-            </Box>
+            </Box>}
 
             {/* Conditionally render hamburger icon for mobile */}
             {isMobile && (
@@ -91,7 +91,7 @@ function Navbar() {
                     </Link>
                 </Box>
             )}
-            <Drawer placement="bottom" onClose={toggleSidebar} isOpen={isOpen} >
+            <Drawer placement="right" onClose={toggleSidebar} isOpen={isOpen} >
                 <DrawerOverlay display='flex' justifyContent='center' alignItems='center' >
                     <DrawerContent>
                         <DrawerHeader>

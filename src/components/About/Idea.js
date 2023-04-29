@@ -1,29 +1,27 @@
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
-import blue from "../Custom/blue.png"
-import red from "../Custom/red.png"
-import green from "../Custom/green.png"
-import ScrollFadingComponent from '../Custom/GenerativeArt'
+import hand from "./iso_hand.png"
+import business from "./iso_business.png"
 import ScrollScalingComponent from '../Custom/AnimatedWrapper'
 
 const cards = [
     {
-        image: blue,
-        title: 'For security',
+        image: hand,
+        title: 'Tolerance in business',
         description: 'Because security is important.',
-        price: '$450',
+        btm: 'WE BELIEVE',
     },
     {
-        image: red,
-        title: 'For time saving',
+        image: business,
+        title: 'Transparency is the key',
         description: 'Because time is also important.',
-        price: '$150',
+        btm: 'WE TRUST',
     },
     {
-        image: green,
+        image: hand,
         title: 'For the rest',
         description: 'Because everything is important.',
-        price: '$350',
+        btm: 'WE HIRE',
     },
 ];
 
@@ -33,17 +31,17 @@ function Idea() {
             {cards.map((card) => (
                 <ScrollScalingComponent>
 
-                    <Card key={card.title} maxW='400px' borderRadius='xl'>
+                    <Card variant='outline' key={card.title} maxW='400px' borderRadius='xl'>
                         <CardBody>
-                            <Image src={card.image} alt={card.title} borderRadius='xl' bgSize='cover' mt='-5rem' />
+                            <Image src={card.image} alt={card.title} borderRadius='xl' bgSize='cover' mb='-4rem' mt='-10rem' />
                             <Stack mt='6' spacing='3'>
                                 <Heading size='md'>{card.title}</Heading>
                                 <Text>{card.description}</Text>
                             </Stack>
                         </CardBody>
                         <Divider />
-                        <CardFooter>
-                            <Text fontFamily='futur' fontSize='2xl'>{card.price}</Text>
+                        <CardFooter borderBottomRadius='xl' bg='navbar' >
+                            <Text fontFamily='heading' fontSize='xl'>{card.btm}</Text>
                         </CardFooter>
                     </Card>
                 </ScrollScalingComponent>
