@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Box, Button, Heading, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Divider, Heading, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 import translations from '../../translations.json';
 import main from './iso_bc.png'
 import Summary from './Summary';
@@ -34,11 +34,9 @@ const About = () => {
                     <Text fontSize='lg' >{paragraph1}</Text>
                     <Text fontSize={'lg'}>{paragraph2}</Text>
                     <Text fontSize={['lg', 'xl']}>{paragraph3}</Text>
-
                 </Stack>
-                <Button bg='telegram.500' w='100%' >
-                    look
-                </Button>
+
+                <Divider />
 
                 <ScrollFadingComponent>
                     <Stack mb={32}>

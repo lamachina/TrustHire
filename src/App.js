@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import About from './components/About/About';
 import { useEffect, useState } from 'react';
 import LanguageContext from './LanguageContext';
-import CardComponent from './components/Dashboard/Dash';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/about" element={<About />} />
-          <Route exact path="/dashboard" element={<CardComponent />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
 
         </Routes>
         {/* <Bottombar /> */}

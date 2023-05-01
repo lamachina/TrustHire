@@ -77,7 +77,7 @@ function Navbar() {
                         to="/about"
                         _hover={{ textDecoration: 'none' }}
                     >
-                        <InfoOutlineIcon fontSize='xl' />
+                        <Text>INFOS</Text>
                     </Link>
                     <Link
                         as={ReactLink}
@@ -85,7 +85,7 @@ function Navbar() {
                         to="/dashboard"
                         _hover={{ textDecoration: 'none' }}
                     >
-                        <TriangleUpIcon fontSize='xl' />
+                        <Text>DASHBOARD</Text>
                     </Link>
                     <Link
                         as={ReactLink}

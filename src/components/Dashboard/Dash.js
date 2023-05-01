@@ -2,16 +2,10 @@ import { InfoIcon, SunIcon } from "@chakra-ui/icons";
 import { Box, Text, Heading, Divider, Card, Flex, CardHeader, ModalOverlay, Button, Modal, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure, IconButton, Stack, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel } from "@chakra-ui/react";
 import { useState } from "react";
 
-
-
-
-
-
 const CardComponent = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
-        <Flex pt={24}
-            w='90%' flexDirection='column' alignItems='center'   >
+        <Flex flexDirection='column' alignItems='center'   >
 
             <Modal isCentered isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay
@@ -41,7 +35,7 @@ const CardComponent = () => {
                 shadow="2xl"
                 bg='navbar'
                 display='flex'
-                w='80%'
+                w='100%'
                 alignItems='center'
             >
                 <CardHeader w='100%' display='flex' flexDirection='row' justifyContent='space-between' alignItems='center'>
