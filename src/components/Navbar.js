@@ -62,7 +62,7 @@ function Navbar() {
                 </Box>
             )}
             {!isMobile && (
-                <Box w='34%' display='flex' justifyContent='space-around'>
+                <Box display='flex' justifyContent='space-around'>
                     <Link
                         as={ReactLink}
                         mr={6}
@@ -86,6 +86,14 @@ function Navbar() {
                         _hover={{ textDecoration: 'none' }}
                     >
                         <Text>DASHBOARD</Text>
+                    </Link>
+                    <Link
+                        as={ReactLink}
+                        mr={6}
+                        to="/mint"
+                        _hover={{ textDecoration: 'none' }}
+                    >
+                        <Text color='bl'>MINT</Text>
                     </Link>
                     <Link
                         as={ReactLink}
@@ -138,6 +146,17 @@ function Navbar() {
                                     onClick={toggleSidebar}
                                 >
                                     <Text fontFamily='futur'>DASHBOARD</Text>
+                                </Link>
+                                <Divider />
+                                <Link
+                                    as={ReactLink}
+                                    to="/mint"
+                                    fontSize="2xl"
+                                    fontWeight="medium"
+                                    _hover={{ textDecoration: 'none' }}
+                                    onClick={toggleSidebar}
+                                >
+                                    <Text color='bl' fontFamily='futur'>MINT</Text>
                                 </Link>
                                 <Divider />
                                 <Link

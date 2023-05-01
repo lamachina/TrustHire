@@ -1,9 +1,11 @@
-import { Flex, Heading, Stack, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
+import { Flex, Heading, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
 import React from 'react'
 import CardComponent from './Dash'
 import Finder from './Finder'
 import { useAccount, useConnect, useEnsName } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
+import ScrollScalingComponent from '../Custom/AnimatedWrapper'
 
 function Dashboard() {
 
@@ -22,16 +24,22 @@ function Dashboard() {
                 </TabList>
                 <TabPanels>
                     <TabPanel >
-                        <Heading mb={8}>MY DASHBOARD</Heading>
-                        {isConnected ?
-                            <CardComponent />
-                            :
-                            <button type="button">
-                                Open Account Modal
-                            </button>}
+                        <ScrollScalingComponent>
+                            <Heading mb={8}>MY DASHBOARD</Heading>
+                            {isConnected ?
+                                <CardComponent />
+                                :
+                                <Stack alignItems='center'>
+                                    <Text>You're not connected</Text>
+                                    <ConnectButton label='Connect to see' />
+                                </Stack>
+                            }
+                        </ScrollScalingComponent>
                     </TabPanel>
                     <TabPanel>
-                        <Finder />
+                        <ScrollScalingComponent>
+                            <Finder />
+                        </ScrollScalingComponent>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
