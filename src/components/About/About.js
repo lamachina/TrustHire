@@ -35,19 +35,13 @@ const About = () => {
                     <Text fontSize={'lg'}>{paragraph2}</Text>
                     <Text fontSize={['lg', 'xl']}>{paragraph3}</Text>
                 </Stack>
-
                 <Divider />
-
                 <ScrollFadingComponent>
                     <Stack mb={32}>
                         <Summary />
                     </Stack>
                 </ScrollFadingComponent>
-
                 <Idea />
-
-
-
             </Stack>
 
         </Stack>

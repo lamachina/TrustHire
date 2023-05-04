@@ -28,7 +28,7 @@ function Mint() {
 
 
     const steps = [
-        { label: '', content: <IntroMint /> },
+        { label: '', content: <IntroMint handleNext={handleNext} /> },
         { label: 'Job Title', content: <StepPosition updateObject={updateObject} /> },
         { label: 'Remarks', content: <StepSkills updateObject={updateObject} /> },
         { label: 'Mint', content: <StepPosition /> },

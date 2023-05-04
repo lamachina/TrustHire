@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 function Summary() {
     const { language } = useContext(LanguageContext);
-    const { About, paragraph1A } = translations[language];
+    const { About, paragraph1A, paragraph2A } = translations[language];
 
     return (
         <div>
@@ -23,11 +23,11 @@ function Summary() {
                 </motion.div>
 
                 <Stack mb={8} gap={1} maxWidth='80%' textAlign='start' w='60%'>
-                    <Text fontSize='lg' >just a subtitle</Text>
-                    <Heading>Now a big title</Heading>
+                    <Text fontSize='lg' >{paragraph2A}</Text>
+                    <Heading>Mint your TRHR</Heading>
                     <Text>{paragraph1A}</Text>
-                    <Button borderColor='#000'>CLICK</Button>
-                    <Button variant='ghost' color='orange.200'>OR HERE</Button>
+                    <Button borderColor='#000'>LEARN</Button>
+                    <Button variant='ghost' color='bl'>MINT</Button>
                 </Stack>
             </Stack>
         </div>

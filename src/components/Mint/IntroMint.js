@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import iso_step from "./iso_step.png"
 import { CloseIcon } from '@chakra-ui/icons';
 
-function IntroMint() {
+function IntroMint({ handleNext }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -12,32 +12,25 @@ function IntroMint() {
         setIsOpen(!isOpen);
     };
     return (
-        <Flex w='100%' flexDirection='column' gap={4}>
-            <Text fontSize='sm'>Because it never was...</Text>
+        <Flex w='100%' flexDirection='column' gap={2} alignItems='center'>
+            <Text fontSize='sm'>Because it's...</Text>
             <Stack direction='row' display='flex' justifyContent='center'>
                 <Heading fontFamily='futur'>so easy to</Heading>
                 <Heading color='bl'>TRUST.</Heading>
-            </Stack>
-            <Divider />
-            <Text fontSize='sm'>Are you ready to mint your TRHR job ?</Text>
 
-            <Stack display='flex' alignItems='center'>
+            </Stack>
+            <Text fontFamily='futur' fontSize='sm'>Are you ready to mint your TRHR job ?</Text>
+
+            {/*    <Stack display='flex' alignItems='center'>
                 <Image src={iso_step} maxH={360} maxW={360} />
-                <List >
-                    <Stack direction='column' display='flex' alignItems='center'>
-                        <ListItem>A brief description of the position and its skills.</ListItem>
-                        <ListItem>The start and the end of the contract.</ListItem>
-                        <ListItem>5 minutes and less then 0.001 MATIC</ListItem>
-                    </Stack>
-                </List>
-            </Stack>
 
+            </Stack> */}
+            <Box bgImage={iso_step} bgPosition='center' h={360} w={360} bgSize='cover' p={4} display='flex' justifyContent='center' alignItems='end'>
+                <Button _hover={{ bg: 'vd' }} fontFamily='heading' variant='solid' colorScheme='telegram' size='lg' mb='3rem' onClick={handleNext}>START</Button>
+            </Box>
             <Box bg='bl' w='100%' p={4}>
-
                 <Text> WATCH OUR 5MIN TUTORIAL HERE !</Text>
             </Box>
-
-
             <Button onClick={toggleSidebar}>QUICK HELP</Button>
 
             <Stack>
@@ -62,7 +55,7 @@ function IntroMint() {
                                 </Box>
                             </DrawerBody>
 
-                            <DrawerFooter display='flex' justifyContent='space-between'>
+                            <DrawerFooter display='flex' justifyContent='end'>
 
                                 <CloseIcon color='red.900' boxSize={8} onClick={toggleSidebar} />
 
@@ -73,7 +66,7 @@ function IntroMint() {
                 </Drawer>
             </Stack>
 
-        </Flex>
+        </Flex >
 
     )
 }
