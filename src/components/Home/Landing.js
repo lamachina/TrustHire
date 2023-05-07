@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
-import { Box, Stack, Text } from '@chakra-ui/react'
+import { Box, Image, Stack, Text } from '@chakra-ui/react'
 import ScrollScalingComponent from '../Custom/AnimatedWrapper';
 import { motion } from "framer-motion";
 import AnimatedCharacters from './AnimatedText';
 import translations from "../../translations.json"
 import LanguageContext from '../../LanguageContext';
-
 
 
 function Landing() {
@@ -29,7 +28,7 @@ function Landing() {
 
     return (
         <ScrollScalingComponent>
-            <Stack justifyContent='center' gap={16}>
+            <Stack justifyContent='center' gap={12}>
                 <Stack alignItems='start' p={8} >
                     <motion.div
                         className="App"
@@ -54,22 +53,6 @@ function Landing() {
 
                     </motion.div>
                     <Text fontFamily='futur'>{translations[language].subtitleHome}</Text>
-
-                </Stack>
-                <Stack display='flex' justifyContent='space-between'  >
-                    <motion.div whileHover={{ scale: 0.95, opacity: 0.5 }}>
-                        <Box mb={-2} h={360} bgSize='contain' bg='gray.600' w='100%' >
-
-                        </Box>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 0.9, opacity: 0.5 }}>
-                        <Box mb={-2} h={360} bgSize='contain' bg='gray.500' w='100%' />
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 0.85, opacity: 0.5 }}>
-                        <Box mb={-2} h={360} bgSize='contain' bg='gray.400' w='100%' />
-                    </motion.div>
-
-
 
                 </Stack>
 

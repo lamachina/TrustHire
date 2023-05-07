@@ -14,9 +14,9 @@ const About = () => {
     const { title, heroImageAlt, paragraph1, paragraph2, paragraph3 } = translations[language];
 
     return (
-        <Stack maxW='90%' mt='10%' display='flex' flexDirection='column' justifyContent='center' alignItems='center' overflow='hidden' gap={8}>
+        <Stack maxW='90%' display='flex' flexDirection='column' justifyContent='center' alignItems='center' overflow='hidden' gap={8}>
 
-            <Stack maxW='95%' pt={8} gap={8} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
+            <Stack maxW='95%' pt={12} gap={8} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
                 <Box textAlign="center" p={4}>
                     <ScrollScalingComponent>
                         <Heading as="h1" fontSize={['4xl', '5xl']}>

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import LanguageContext from './LanguageContext';
 import Dashboard from './components/Dashboard/Dashboard';
 import Mint from './components/Mint/Mint';
+import Bottombar from './components/Bottombar';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
-      <div className="App">
+      <Stack className="App" minHeight='100vh'>
 
         <Navbar />
         <Routes>
@@ -32,10 +33,10 @@ function App() {
           <Route exact path="/mint" element={<Mint />} />
 
         </Routes>
-        {/* <Bottombar /> */}
+        <Bottombar />
 
+      </Stack>
 
-      </div>
     </LanguageContext.Provider>
   );
 }

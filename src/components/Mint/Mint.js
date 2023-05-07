@@ -5,6 +5,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import StepPosition from './Step/StepPosition';
 import ScrollFadingComponent from '../Custom/GenerativeArt';
 import StepSkills from './Step/StepSkills';
+import StepMint from './Step/StepMint';
 
 
 
@@ -29,9 +30,9 @@ function Mint() {
 
     const steps = [
         { label: '', content: <IntroMint handleNext={handleNext} /> },
-        { label: 'Job Title', content: <StepPosition updateObject={updateObject} /> },
-        { label: 'Remarks', content: <StepSkills updateObject={updateObject} /> },
-        { label: 'Mint', content: <StepPosition /> },
+        { label: 'Basic infos', content: <StepPosition updateObject={updateObject} handleNext={handleNext} /> },
+        { label: 'Skills', content: <StepSkills updateObject={updateObject} handleNext={handleNext} /> },
+        { label: 'Mint', content: <StepMint userData={object} /> },
     ];
 
 
@@ -46,7 +47,7 @@ function Mint() {
             >
                 <ScrollFadingComponent>
 
-                    <Text fontSize="3xl" mb={6}>
+                    <Text textAlign='start' fontSize="3xl">
                         {steps[activeStep].label}
                     </Text>
                     {steps[activeStep].content}
@@ -59,7 +60,7 @@ function Mint() {
                                 Back
                             </Button>
                         )}
-                        {activeStep < steps.length - 1 ? (
+                        {/*  {activeStep < steps.length - 1 ? (
                             <Button
                                 rightIcon={<ChevronRightIcon />}
                                 onClick={handleNext}
@@ -77,7 +78,7 @@ function Mint() {
                             >
                                 Restart
                             </Button>
-                        )}
+                        )} */}
                     </Stack>
                 </ScrollFadingComponent>
 
