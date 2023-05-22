@@ -1,105 +1,111 @@
-import { CheckCircleIcon, ChevronDownIcon } from '@chakra-ui/icons';
-import { Button, CircularProgress, Flex, Menu, MenuButton, MenuItemOption, MenuList, MenuOptionGroup, Stack, Text, useToast } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import {
+    Button,
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    Divider,
+    Flex,
+    Heading,
+    Input,
+    Stack,
+    Text,
+} from '@chakra-ui/react';
 
-const StepSkills = ({ updateObject, handleNext }) => {
+function StepMint({ updateObject, handleNext }) {
+    const [skills, setSkills] = useState('');
+    const [description, setDescription] = useState('');
+    const [message, setMessage] = useState('');
+    const [chats, setChats] = useState([]);
+    const [isTyping, setIsTyping] = useState(false);
 
-    const toast = useToast()
-    const [skills, setSkills] = useState([]);
-    const [selectedOptions, setSelectedOptions] = useState({});
-    const [isFullySaved, setIsFullySaved] = useState(false);
+    const chat = async (e, message) => {
+        e.preventDefault();
 
-    useEffect(() => {
-        fetch('http://localhost:8000/skills')
-            .then(response => response.json())
-            .then(skills => {
-                const options = skills.reduce((acc, skill) => {
-                    acc[skill.category] = '';
-                    return acc;
-                }, {});
-                setSelectedOptions(options);
-                setSkills(skills);
-            })
-            .catch(error => console.error(error));
-    }, []);
 
-    const handleOptionSelect = (category, option) => {
-        setSelectedOptions(prevSelectedOptions => ({
-            ...prevSelectedOptions,
-            [category]: option,
-        }));
-    };
+        let msgs = chats;
+        msgs.push({ role: 'user', content: message });
 
-    const handleSave = () => {
-        const isSaved = Object.values(selectedOptions).every(
-            (value) => value !== ''
-        );
-        setIsFullySaved(isSaved);
-
-        if (isSaved) {
-            updateObject('skills', selectedOptions);
-            toast({
-                title: 'Successfully saved.',
-                description: '',
-                status: 'success',
-                duration: 2000,
-                isClosable: true,
+        try {
+            const response = await fetch('http://localhost:8000/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message, chats: msgs }),
             });
-            setTimeout(() => {
-                setIsFullySaved(false);
-                handleNext();
-            }, 1700);
-        } else {
-            toast({
-                title: 'Empty fields.',
-                description: 'You should fill up everything',
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setChats(data.chats);
+                setIsTyping(false);
+            } else {
+                console.error('Error:', response.status);
+            }
+        } catch (error) {
+            console.error('Error:', error);
         }
+
+        setMessage('');
     };
 
     return (
-        <Flex w='100%' flexDirection="column" alignItems="center" >
+        <Flex alignItems="center" justifyContent="center">
+            <Card w="90%" variant="elevated" borderRadius="2rem">
+                <CardHeader>
+                    <Heading fontFamily="body">Job Description</Heading>
+                </CardHeader>
+                <CardBody>
 
-            <Stack w="100%" gap={4}>
-                {skills.map(skill => (
-                    <Menu key={skill.category} closeOnSelect={false} matchWidth>
-                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                            {skill.category}
-                        </MenuButton>
-                        <Text >
-                            {selectedOptions[skill.category] &&
-                                <Stack display='flex' flexDirection='row' alignItems='center' justifyContent='cebter' gap={2}>
-                                    <CheckCircleIcon color='vd' />
-                                    <Text textAlign='center'>{selectedOptions[skill.category]}</Text>
-                                </Stack>
+                    <Stack spacing={4}>
+                        <Text>Enter Skills:</Text>
+                        <Input
+                            type="text"
+                            name="message"
+                            value={message}
+                            placeholder="Type a message here and hit Enter..."
+                            onChange={(e) => setMessage(e.target.value)}
+                        />
+                        <Button onClick={(e) => chat(e, message)}>Submit</Button>
+                    </Stack>
 
-                            }
-                        </Text>
-                        <MenuList >
-                            <MenuOptionGroup color='bl' defaultValue='' title='Select one option' type='radio'>
-                                {skill.subcategories[0].options.map((option) => (
-                                    <MenuItemOption
-                                        key={option}
-                                        value={option}
-                                        onClick={() => handleOptionSelect(skill.category, option)}
-                                        isChecked={selectedOptions[skill.category] === option}
-                                    >
-                                        {option}
-                                    </MenuItemOption>
-                                ))}
-                            </MenuOptionGroup>
-                        </MenuList>
-                    </Menu>
-                ))}
 
-                <Button onClick={handleSave}>Save</Button>
-            </Stack>
+                    <Stack>
+                        {chats && chats.length
+                            ? chats.map((chat, index) => (
+                                <p key={index} className={chat.role === 'user' ? 'user_msg' : ''}>
+                                    <span>
+                                        <b>{chat.role.toUpperCase()}</b>
+                                    </span>
+                                    <span>:</span>
+                                    <span>{chat.content}</span>
+                                </p>
+                            ))
+                            : ''}
+                    </Stack>
+                </CardBody>
+                <Divider />
+                <CardFooter gap={4} justifyContent="space-between" display="flex">
+                    <Button colorScheme="telegram" onClick={chat}>
+                        Generate Job Description
+                    </Button>
+                </CardFooter>
+            </Card>
+            {description && (
+                <Card w="90%" variant="elevated" borderRadius="2rem" mt={4}>
+                    <CardHeader>
+                        <Heading fontFamily="body">Job Description Result</Heading>
+                    </CardHeader>
+                    <CardBody>
+                        <Text>{description}</Text>
+                    </CardBody>
+                </Card>
+            )}
+
 
         </Flex>
     );
-};
+}
 
-export default StepSkills;
+export default StepMint;

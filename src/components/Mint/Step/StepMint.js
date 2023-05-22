@@ -1,11 +1,32 @@
-import React from 'react'
-import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Flex, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Flex, Heading, Stack, Text } from '@chakra-ui/react';
 import { ArrowRightIcon } from '@chakra-ui/icons';
 
 function StepMint({ userData }) {
+    const [jobDescription, setJobDescription] = useState('');
 
-    const StartDate = new Date(userData.stepOne.firmDateStart);
-    const EndDate = new Date(userData.stepOne.firmDateEnd);
+    const submitSkills = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/answer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ skills: userData.skills })
+            });
+
+            const data = await response.json();
+            const { description } = data;
+
+            // Update the job description state
+            setJobDescription(description);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
+
 
     return (
         <Flex alignItems='center' justifyContent='center'>
@@ -15,10 +36,10 @@ function StepMint({ userData }) {
                     <Heading fontFamily='body'>{userData.stepOne.firmPosition}</Heading>
                     <Stack display='flex' alignItems='baseline' justifyContent='space-around' flexDirection='row'>
 
-                        <Text>{StartDate.toLocaleDateString()}</Text>
+                        {/*   <Text>{StartDate.toLocaleDateString()}</Text>
                         <ArrowRightIcon fontSize='2xs' />
                         <Text>{EndDate.toLocaleDateString()}</Text>
-
+ */}
 
 
                     </Stack>
@@ -32,6 +53,7 @@ function StepMint({ userData }) {
                             </Text>
                         ))}
                     </Stack>
+                    <Text>{jobDescription}</Text>
                 </CardBody>
                 <Divider />
 
@@ -39,7 +61,7 @@ function StepMint({ userData }) {
                     <Button colorScheme='red'>
                         Decline
                     </Button>
-                    <Button colorScheme='telegram'>
+                    <Button colorScheme='telegram' onClick={submitSkills}>
                         Modify
                     </Button>
                     <Button colorScheme='whatsapp'>
