@@ -28,7 +28,7 @@ function StepMint({ updateObject, handleNext }) {
         msgs.push({ role: 'user', content: message });
 
         try {
-            const response = await fetch('http://localhost:8000/chat', {
+            const response = await fetch('https://nanolab-server.vercel.app/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
