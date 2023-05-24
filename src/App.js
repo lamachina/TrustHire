@@ -9,6 +9,7 @@ import LanguageContext from './LanguageContext';
 import Dashboard from './components/Dashboard/Dashboard';
 import Mint from './components/Mint/Mint';
 import Bottombar from './components/Bottombar';
+import Contact from './components/Contact';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/mint" element={<Mint />} />
+          <Route exact path="/contact" element={<Contact />} />
 
         </Routes>
         <Bottombar />
