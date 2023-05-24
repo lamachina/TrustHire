@@ -26,6 +26,8 @@ function Contact() {
     const handleSubmit = async (e, message) => {
 
         e.preventDefault();
+        setIsLoading(true);
+        setIsModalOpen(true);
 
         try {
             const questione = message;
@@ -42,43 +44,6 @@ function Contact() {
 
             // Handle the response from the server
             setResponse(data.result)
-        } catch (error) {
-            console.log(error);
-        } finally {
-
-        }
-    };
-
-
-
-
-    const toast = useToast();
-    const [message, setMessage] = useState('');
-    const [responsee, setresponsee] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const chat = async (e, message) => {
-        e.preventDefault();
-        setIsLoading(true);
-        setIsModalOpen(true);
-
-        try {
-            const response = await fetch('https://general-ai.vercel.app/datap', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ question: message }),
-            }
-
-            );
-            const data = await response.json();
-            console.log(data);
-
-            // Handle the response from the server
-            setresponsee(data.result)
-
             if (response.ok) {
                 // Handle the successful response
                 setIsLoading(false);
@@ -116,7 +81,26 @@ function Contact() {
             });
             setIsLoading(false);
             setIsModalOpen(false);
+            console.log(error);
+
+        } finally {
+
         }
+    };
+
+
+
+
+    const toast = useToast();
+    const [message, setMessage] = useState('');
+    const [responsee, setresponsee] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const chat = async (e, message) => {
+
+
+
 
 
     };
